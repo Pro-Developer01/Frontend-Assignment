@@ -24,7 +24,7 @@ export default function UiSchema({ data }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formValues);
-    alert("Form Submited Check concole to see Form Data");
+    alert("Form Submited Check console to see Form Data");
   };
 
   //Functions for rendering specific input element
