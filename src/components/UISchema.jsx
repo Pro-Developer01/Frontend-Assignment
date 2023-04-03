@@ -24,7 +24,6 @@ export default function UiSchema({ data }) {
   const radioClickHandler = (value) => {
     setRadioValue(value);
   };
-  console.log(radioValue);
 
   const renderInput = (param) => {
     return (
@@ -45,7 +44,6 @@ export default function UiSchema({ data }) {
           onChange={handleInputChange}
           required={param.validate.required}
         />
-        {/* {formErrors.name && <div className="form-error">{formErrors.name}</div>} */}
       </div>
     );
   };
@@ -121,12 +119,7 @@ export default function UiSchema({ data }) {
           {renderSubParameters(param.subParameters)}
         </div>
       );
-    } else
-      console.log(
-        param.conditions[0].value === radioValue,
-        param.conditions[0].value,
-        radioValue
-      );
+    }
   };
 
   const renderSubParameters = (subParams) => {
@@ -169,6 +162,15 @@ export default function UiSchema({ data }) {
       }
       if (param.uiType === "Select") {
         return <div className="field-container">{renderSelect(param)}</div>;
+      }
+      if (param.uiType === "Radio") {
+        return renderRadio(param);
+      }
+      if (param.uiType === "Ignore") {
+        return renderIgnore(param);
+      }
+      if (param.uiType === "Switch") {
+        return renderSwitch(param);
       }
     });
   };
