@@ -73,6 +73,19 @@
   justify-content: flex-end;
   gap: 0.5rem;
 }
+.form-RadioButton {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid lightgray;
+  background: lightpink;
+  opacity: 0.8;
+  cursor: pointer;
+}
+.form-RadioButton-active,
+.form-RadioButton:hover {
+  opacity: 1;
+  border: 1px solid black;
+}
 
 /* Form error message */
 .form-error {

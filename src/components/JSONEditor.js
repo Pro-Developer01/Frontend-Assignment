@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import formJson from '../Assets/pasta.json'
+import formJson from '../Assets/pizza.json'
 
 export default function JSONEditor({ setFormJson }) {
 

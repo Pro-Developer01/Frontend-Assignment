@@ -1,6 +1,6 @@
 import { Box, Paper } from '@mui/material'
 import React, { useState } from 'react'
-import UISchema from './UISchema.js'
+import UISchema from './UISchema.jsx'
 import JSONEditor from './JSONEditor.js'
 // import formJson from '../Assets/pizza.json'
 
