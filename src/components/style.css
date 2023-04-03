@@ -1,0 +1,103 @@
+/* Form wrapper */
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  background: #8900be0a;
+  padding: 30px;
+  width: 35rem;
+  box-sizing: border-box;
+  height: 100%;
+}
+/* field container */
+.field-container {
+  background: #8900be0a;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 9px;
+  border: 1px solid lightgray;
+}
+/* Form field */
+.form-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Form label */
+.form-label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+/* Form input */
+.form-input {
+  padding: 0.5rem;
+  border: 1px solid #8904bd;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 46%;
+  background: #8900be17;
+}
+
+/* Form select */
+.form-select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Form submit button */
+.form-submit {
+  background-color: #8900bed9;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.form-cancel {
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 1px solid #8904bd;
+}
+.form-Button {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+/* Form error message */
+.form-error {
+  color: #dc3545;
+  font-size: 0.8rem;
+}
+
+.form-group > div {
+  margin: 1rem;
+}
+.form-group > h4 {
+  margin: 0;
+}
+
+/* //JSONEditorStyle */
+.form-textarea {
+  width: 92%;
+  min-height: 20.5rem;
+}
+
+.form-Nodata {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 30rem;
+  background: #8900be0a;
+}
