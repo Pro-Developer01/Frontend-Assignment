@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './style.css';
+import "./style.css";
 
 export default function UiSchema({ data }) {
     const [formValues, setFormValues] = useState({});
@@ -17,12 +17,20 @@ export default function UiSchema({ data }) {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(formValues);
+        alert('Form Submited Check concole to see Form Data')
     };
 
     const renderInput = (param) => {
         return (
             <div className="form-field" key={param.jsonKey}>
-                <label className="form-label" htmlFor={param.jsonKey}>{param.label}</label>
+                <label className="form-label" htmlFor={param.jsonKey}>
+                    {param.label}{" "}
+                    {param.validate.required ? (
+                        <span className="form-require ">
+                            *
+                        </span>
+                    ) : null}
+                </label>
                 <input
                     type="text"
                     className="form-input"
@@ -41,7 +49,15 @@ export default function UiSchema({ data }) {
     const renderSelect = (param) => {
         return (
             <div className="form-field" key={param.jsonKey}>
-                <label className="form-label" htmlFor={param.jsonKey}>{param.label}</label>
+                <label className="form-label" htmlFor={param.jsonKey}>
+                    {param.label}
+                    {param.validate.required ?
+                        <span className="form-require">
+
+                            *
+                        </span>
+                        : null}
+                </label>
                 <select
                     className="form-input"
                     id={param.jsonKey}
@@ -60,14 +76,11 @@ export default function UiSchema({ data }) {
         );
     };
 
-
-
     const renderSubParameters = (subParams) => {
         return subParams.map((subParam) => {
             if (subParam.uiType === "Select") {
                 return renderSelect(subParam);
             }
-
         });
     };
 
@@ -84,49 +97,36 @@ export default function UiSchema({ data }) {
     const renderForm = () => {
         return data.map((param) => {
             if (param.uiType === "Input") {
-                return (
-                    <div className="field-container">
-                        {renderInput(param)}
-                    </div>
-                )
+                return <div className="field-container">{renderInput(param)}</div>;
             }
             if (param.uiType === "Group") {
-                return (<div className="field-container">
-                    {renderGroup(param)}
-                </div>
-                )
+                return <div className="field-container">{renderGroup(param)}</div>;
             }
             if (param.uiType === "Select") {
-                return (<div className="field-container">
-                    {renderSelect(param)}
-                </div>
-                )
+                return <div className="field-container">{renderSelect(param)}</div>;
             }
         });
     };
 
     return (
         <>
-
-            {data ?
+            {data ? (
                 <div className="form-wrapper">
                     <form onSubmit={handleSubmit}>
                         {renderForm()}
                         <div className="form-Button">
-
-                            <button className="form-cancel">
-                                Cancel
-                            </button>
+                            <button className="form-cancel">Cancel</button>
                             <button type="submit" className="form-submit">
                                 Submit
                             </button>
                         </div>
                     </form>
-                </div> :
+                </div>
+            ) : (
                 <div className="form-Nodata">
                     <h4>Please Submit / Paste the JSON Data</h4>
                 </div>
-            }
+            )}
         </>
     )
-}
+}   

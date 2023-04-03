@@ -79,6 +79,10 @@
   color: #dc3545;
   font-size: 0.8rem;
 }
+.form-require {
+  color: #dc3545;
+  font-size: 0.8rem;
+}
 
 .form-group > div {
   margin: 1rem;
