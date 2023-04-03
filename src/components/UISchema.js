@@ -3,6 +3,7 @@ import "./style.css";
 
 export default function UiSchema({ data }) {
     const [formValues, setFormValues] = useState({});
+    const [radioValue, setRadioValue] = useState('naples');
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -19,6 +20,10 @@ export default function UiSchema({ data }) {
         console.log(formValues);
         alert('Form Submited Check concole to see Form Data')
     };
+    const radioClickHandler = (value) => {
+        setRadioValue(value)
+    }
+    console.log(radioValue)
 
     const renderInput = (param) => {
         return (
@@ -75,11 +80,48 @@ export default function UiSchema({ data }) {
             </div>
         );
     };
+    const renderRadio = (param) => {
+        return (
+            <div className="form-field" key={param.jsonKey}>
+                {param.validate.options.map((option) => (
+                    <button type="button" key={option.value} onClick={() => radioClickHandler(option.value)}>
+                        {option.label}
+                    </button>
+                ))}
+
+            </div>
+        );
+    };
+    const renderIgnore = (param) => {
+        if (param.conditions[0].value === radioValue) {
+            console.log(param.conditions[0].value === radioValue, param.conditions[0].value, radioValue)
+            return (
+                <div className="form-group" key={param.jsonKey}>
+                    {renderSubParameters(param.subParameters)}
+                </div>
+            )
+
+        }
+        else (
+            console.log(param.conditions[0].value === radioValue, param.conditions[0].value, radioValue)
+
+        )
+
+    };
 
     const renderSubParameters = (subParams) => {
         return subParams.map((subParam) => {
             if (subParam.uiType === "Select") {
                 return renderSelect(subParam);
+            }
+            if (subParam.uiType === "Radio") {
+                return renderRadio(subParam);
+            }
+            if (subParam.uiType === "Ignore") {
+                return renderIgnore(subParam);
+            }
+            if (subParam.uiType === "Input") {
+                return renderInput(subParam);
             }
         });
     };
@@ -129,4 +171,4 @@ export default function UiSchema({ data }) {
             )}
         </>
     )
-}   
+}
