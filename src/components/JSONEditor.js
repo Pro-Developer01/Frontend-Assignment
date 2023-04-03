@@ -4,6 +4,7 @@ import formJson from '../Assets/pizza.json'
 export default function JSONEditor({ setFormJson }) {
 
     const [textareaContent, setTextareaContent] = useState(JSON.stringify(formJson))
+
     const handleSubmit = (event) => {
         event.preventDefault();
         if (textareaContent)
